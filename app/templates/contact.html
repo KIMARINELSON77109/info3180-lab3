@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block main %}
-<div class="">
+<div>
     <h2> CONTACT FORM </h2>
     <hr></hr>
 </div>
@@ -19,7 +19,10 @@
                 <div class="form-group">
                     <label for="form_name">Name <span>(Required)</span></label>
                     <p>Please enter your full name</p>
-                    {{form.name(class="form-control",id="form_name",required="required")}}
+                    {{form.name(class="form-control",id="form_name")}}
+                    {% for message in form.name.errors %}
+                        <div class="error">{{message}}</div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -28,7 +31,10 @@
                 <div class="form-group">
                     <label for="form_email">E-mail <span>(Required)</span></label>
                     <p>Enter your email address</p>
-                    {{form.email(class="form-control",id="form_email",required="required")}}
+                    {{form.email(class="form-control",id="form_email")}}
+                    {% for message in form.email.errors %}
+                        <div class="error">{{message}}</div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -37,7 +43,10 @@
                 <div class="form-group">
                     <label for="form_name">Subject <span>(Required)</span></label>
                     <p>Please enter the subject for your message</p>
-                    {{form.subject(class="form-control",id="form_subject",required="required")}}
+                    {{form.subject(class="form-control",id="form_subject")}}
+                    {% for message in form.subject.errors %}
+                        <div class="error">{{message}}</div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -46,11 +55,14 @@
                 <div class="form-group">
                     <label for="form_message">Message <span>(Required)</span></label>
                     <p>Please enter the message you would like to send</p>
-                    {{form.message(class="form-control",id="form_message",required="required")}}
+                    {{form.message(class="form-control",id="form_message")}}
+                    {% for message in form.message.errors %}
+                        <div class="error">{{message}}</div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="col-md-12">
-                <input type="submit" class="btn btn-success btn-send" value="Send message">
+                {{form.button(class="btn btn-success btn-send")}}
             </div>
         </div>
     </div>
