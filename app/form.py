@@ -9,9 +9,9 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 
 class MyForm(FlaskForm):
-    name = StringField('name', validators = [DataRequired("Name is required!!!!!!!!!")])
-    email = StringField('email', validators = [DataRequired("Email is required!!!!!!!!!"), Email("Please Enter vaild email name@example.com")])
-    subject = StringField('subject', validators = [DataRequired("Subject for message is required!!!!!!!!!!")])
+    name = StringField('name', validators = [DataRequired("Name is required!!!!!")])
+    email = StringField('email', validators = [DataRequired("Email is required!!!!!"), Email("Please Enter vaild email name@example.com")])
+    subject = StringField('subject', validators = [DataRequired("Subject for message is required!!!!!!")])
     message = TextAreaField('message', validators = [DataRequired("Message is required!!!!!!!!")])
     button = SubmitField('send')
     
