@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="">
+    <h2> CONTACT FORM </h2>
+    <hr></hr>
+</div>
+
+<P id="title"> fill in this form to contact the site owner</P>
+
+<form method="POST" action="{{ url_for('contact') }}">
+    
+    {{ form.csrf_token }}
+    
+    <div class="controls">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_name">Name <span>(Required)</span></label>
+                    <p>Please enter your full name</p>
+                    {{form.name(class="form-control",id="form_name",required="required")}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_email">E-mail <span>(Required)</span></label>
+                    <p>Enter your email address</p>
+                    {{form.email(class="form-control",id="form_email",required="required")}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_name">Subject <span>(Required)</span></label>
+                    <p>Please enter the subject for your message</p>
+                    {{form.subject(class="form-control",id="form_subject",required="required")}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_message">Message <span>(Required)</span></label>
+                    <p>Please enter the message you would like to send</p>
+                    {{form.message(class="form-control",id="form_message",required="required")}}
+                </div>
+            </div>
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-success btn-send" value="Send message">
+            </div>
+        </div>
+    </div>
+
+</form>
+{% endblock %}
